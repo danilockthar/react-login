@@ -1,0 +1,31 @@
+.success{
+  color: green;
+}
+.failed{
+  color: tomato;
+}
+.inputfail{
+  border: 2px solid tomato;
+}
+form input[type=text]{
+
+  display: block;
+  margin-top: 15px;
+  width: 350px;
+  padding: 5px;
+  height: 40px;
+}
+form input[type=submit]{
+
+  width: 350px;
+  height: 40px;
+  display: block;
+  margin-top: 15px;
+  border: none;
+  background: dodgerblue;
+  color: white;
+  font-size: 20px;
+}
+form h1{
+  text-align: left;
+}
