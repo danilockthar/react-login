@@ -16,18 +16,17 @@ function App() {
 
   const [isAuth, setIsAuth] = useState(false);
 
+
+
   const PrivateRoute = ({component: Component, ...rest}) => {
     return (<Route {...rest} render={(props) => (
       isAuth
       ? <Component {...props} />
       : <Redirect to='/login' />
     )}
-
-
       />
     )
   }
-
 
 
   return (
@@ -36,15 +35,14 @@ function App() {
     <div className="App">
       <Nav />
       <Switch>
-        <AuthContext.Provider value={"sisi"}>
+
         <Route path='/' exact component={Home}/>
         <Route path='/login' exact component={Login}/>
         <Route path='/registrar' exact component={Registrar}/>
-        <PrivateRoute path='/protected' component={Protected} />
-      
-        </AuthContext.Provider>
-        </Switch>
 
+        <PrivateRoute path='/protected' component={Protected} />
+
+        </Switch>
 
     </div>
 

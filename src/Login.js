@@ -10,11 +10,11 @@ function Login(props) {
   const [isAuth, setIsAuth] = useState(false);
 
 
-  const contexto = useContext(AuthContext);
+  
   const makeLogin = (e) => {
 
     e.preventDefault();
-    // Aqui hago fetch a mi backend en php, que me devuelve si el usuario es correcto, un token //
+
     fetch("http://localhost/daniphp/login-jwt/ingreso.php", {
     method: "POST",
     headers: new Headers({
@@ -28,9 +28,6 @@ function Login(props) {
       if(json.token){
         localStorage.setItem('myToken', json.token);
         setIsAuth(true);
-        console.log(contexto);
-        //si existe el token quiero que el estado isAuth pase a ser verdadero y sea global, que es el que //
-        // se encuentra en app.js manejando el isAuth de PrivateRoute y hacer publica esa pagina. //
 
       }
 
@@ -58,13 +55,13 @@ function Login(props) {
 
       <div className="login">
         <h1> Login </h1>
-
-        <form onSubmit={props.makeLogin}>
+        <AuthContext.Provider value={isAuth}>
+        <form onSubmit={makeLogin}>
           <input type='text' placeholder='email' value={email} onChange={handleEmail} />
           <input type='text' placeholder='contraseña' value={passw} onChange={handlePassw} />
           <input type='submit' />
         </form>
-
+        </AuthContext.Provider>
         <button onClick={logOut} id='logOutbutton'> Desloguear </button>
       </div>
 
