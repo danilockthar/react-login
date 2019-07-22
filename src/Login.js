@@ -14,7 +14,7 @@ function Login(props) {
   const makeLogin = (e) => {
 
     e.preventDefault();
-
+    // Aqui hago fetch a mi backend en php, que me devuelve si el usuario es correcto, un token //
     fetch("http://localhost/daniphp/login-jwt/ingreso.php", {
     method: "POST",
     headers: new Headers({
@@ -29,6 +29,9 @@ function Login(props) {
         localStorage.setItem('myToken', json.token);
         setIsAuth(true);
         console.log(contexto);
+        //si existe el token quiero que el estado isAuth pase a ser verdadero y sea global, que es el que //
+        // se encuentra en app.js manejando el isAuth de PrivateRoute y hacer publica esa pagina. //
+
       }
 
     })

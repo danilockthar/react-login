@@ -13,11 +13,9 @@ import { BrowserRouter as Router,
   } from 'react-router-dom';
 
 function App() {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [passw, setPassw] = useState('');
+
   const [isAuth, setIsAuth] = useState(false);
-  const [myval, setMyval] = useState("sisi");
+
   const PrivateRoute = ({component: Component, ...rest}) => {
     return (<Route {...rest} render={(props) => (
       isAuth
@@ -29,35 +27,8 @@ function App() {
       />
     )
   }
-  const Good = () =>{
-    return  <h1> context </h1>;
-  }
 
-  const makeLogin = (e) => {
 
-    e.preventDefault();
-
-    fetch("http://localhost/daniphp/login-jwt/ingreso.php", {
-    method: "POST",
-    headers: new Headers({
-      "Content-Type": "application/x-www-form-urlencoded"
-    }),
-    body: "useremail=" + email + "&userpw="+ passw
-  })
-    .then(response => response.json())
-    .then(json => {
-      console.log(json);
-      if(json.token){
-        localStorage.setItem('myToken', json.token);
-        setIsAuth(true);
-
-      }
-
-    })
-    .catch(error => {
-      console.error(error);
-    });
-}
 
   return (
     <Router>
@@ -70,7 +41,7 @@ function App() {
         <Route path='/login' exact component={Login}/>
         <Route path='/registrar' exact component={Registrar}/>
         <PrivateRoute path='/protected' component={Protected} />
-        <Good />
+      
         </AuthContext.Provider>
         </Switch>
 
