@@ -1,5 +1,5 @@
 import React,{useState, useEffect, useContext, createContext} from 'react';
-
+import AuthContext from './context/AuthContext';
 
 
 function Login(props) {
@@ -10,7 +10,7 @@ function Login(props) {
   const [isAuth, setIsAuth] = useState(false);
 
 
-
+  const contexto = useContext(AuthContext);
   const makeLogin = (e) => {
 
     e.preventDefault();
@@ -28,6 +28,7 @@ function Login(props) {
       if(json.token){
         localStorage.setItem('myToken', json.token);
         setIsAuth(true);
+        console.log(contexto);
       }
 
     })
@@ -38,6 +39,7 @@ function Login(props) {
 
   const logOut = () => {
     localStorage.removeItem("myToken");
+    localStorage.removeItem("auth");
   }
   const handleUsername = (e) =>{
     setName(e.target.value);
@@ -53,7 +55,8 @@ function Login(props) {
 
       <div className="login">
         <h1> Login </h1>
-        <form onSubmit={makeLogin}>
+
+        <form onSubmit={props.makeLogin}>
           <input type='text' placeholder='email' value={email} onChange={handleEmail} />
           <input type='text' placeholder='contraseña' value={passw} onChange={handlePassw} />
           <input type='submit' />
