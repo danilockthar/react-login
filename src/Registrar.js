@@ -7,7 +7,7 @@ import './css/Registrar.css';
 
 function Registrar() {
 
-
+    const [autenticado, setAutenticado] = useState(false);
     const [inputName, setInputName] = useState(false);
     const [inputLast, setInputLast] = useState(false);
     const [inputEmail, setInputEmail] = useState(false);
@@ -68,6 +68,7 @@ function Registrar() {
           }
           if(responseText === "Registro realizado con exito"){
             setIsReady(true);
+            setAutenticado(true);
           }
           })
           .catch((error) => {

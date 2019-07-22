@@ -19,6 +19,9 @@ function Nav() {
       <NavLink  to='/registrar' className="Linktags" activeClassName="selected">
         Registrar
       </NavLink>
+      <NavLink  to='/protected' className="Linktags" activeClassName="selected">
+        Contenido protegido
+      </NavLink>
       </div>
     </div>
 
