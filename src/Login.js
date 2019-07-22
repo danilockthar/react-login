@@ -9,8 +9,8 @@ function Login(props) {
   const [passw, setPassw] = useState('');
   const [isAuth, setIsAuth] = useState(false);
 
+  const context = useContext(AuthContext);
 
-  
   const makeLogin = (e) => {
 
     e.preventDefault();
@@ -27,8 +27,8 @@ function Login(props) {
       console.log(json);
       if(json.token){
         localStorage.setItem('myToken', json.token);
-        setIsAuth(true);
-
+        props.changeAuth();
+        console.log(context);
       }
 
     })
@@ -63,6 +63,7 @@ function Login(props) {
         </form>
         </AuthContext.Provider>
         <button onClick={logOut} id='logOutbutton'> Desloguear </button>
+        {context? <h1> yes </h1> : <h1> no </h1>}
       </div>
 
   )

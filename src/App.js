@@ -16,7 +16,9 @@ function App() {
 
   const [isAuth, setIsAuth] = useState(false);
 
-
+  const changeAuth = () =>{
+    setIsAuth(!isAuth);
+  }
 
   const PrivateRoute = ({component: Component, ...rest}) => {
     return (<Route {...rest} render={(props) => (
@@ -35,17 +37,17 @@ function App() {
     <div className="App">
       <Nav />
       <Switch>
-
+        <AuthContext.Provider value={isAuth}>
         <Route path='/' exact component={Home}/>
-        <Route path='/login' exact component={Login}/>
+        <Route path='/login' render={(props)=><Login changeAuth={changeAuth}/>}/>
         <Route path='/registrar' exact component={Registrar}/>
 
         <PrivateRoute path='/protected' component={Protected} />
-
+      </AuthContext.Provider>
         </Switch>
 
     </div>
-
+    <button onClick={changeAuth}> Change </button>
     </Router>
   );
 }
