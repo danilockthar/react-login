@@ -1,6 +1,11 @@
 import React,{useState, useEffect, useContext, createContext} from 'react';
+import { BrowserRouter as Router,
+   Switch,
+   Route,
+   Redirect
+  } from 'react-router-dom';
 import AuthContext from './context/AuthContext';
-
+import Redirigido from './context/Redirigido';
 
 function Login(props) {
 
@@ -10,7 +15,7 @@ function Login(props) {
   const [isAuth, setIsAuth] = useState(false);
 
   const context = useContext(AuthContext);
-
+  const redirecto = useContext(Redirigido);
   const makeLogin = (e) => {
 
     e.preventDefault();
@@ -28,7 +33,7 @@ function Login(props) {
       if(json.token){
         localStorage.setItem('myToken', json.token);
         props.changeAuth();
-        console.log(context);
+
       }
 
     })
@@ -51,19 +56,22 @@ function Login(props) {
   const handlePassw = (e) => {
     setPassw(e.target.value);
   }
+
+
   return (
 
       <div className="login">
+        {redirecto ? <h3 id='msgredirect'> Tienes que loguear para poder ver esta pagina </h3> : ""}
         <h1> Login </h1>
-        <AuthContext.Provider value={isAuth}>
+
         <form onSubmit={makeLogin}>
           <input type='text' placeholder='email' value={email} onChange={handleEmail} />
           <input type='text' placeholder='contraseña' value={passw} onChange={handlePassw} />
           <input type='submit' />
         </form>
-        </AuthContext.Provider>
+
         <button onClick={logOut} id='logOutbutton'> Desloguear </button>
-        {context? <h1> yes </h1> : <h1> no </h1>}
+
       </div>
 
   )
