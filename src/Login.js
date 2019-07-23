@@ -1,4 +1,5 @@
 import React,{useState, useEffect, useContext, createContext} from 'react';
+import './css/Login.css';
 import { BrowserRouter as Router,
    Switch,
    Route,
@@ -12,6 +13,7 @@ function Login(props) {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [passw, setPassw] = useState('');
+  const [msg, setMsg] = useState("");
   const [isAuth, setIsAuth] = useState(false);
 
   const context = useContext(AuthContext);
@@ -29,7 +31,7 @@ function Login(props) {
   })
     .then(response => response.json())
     .then(json => {
-      console.log(json);
+      setMsg(json.msg);
       if(json.token){
         localStorage.setItem('myToken', json.token);
         props.changeAuth();
@@ -62,6 +64,7 @@ function Login(props) {
 
       <div className="login">
         {redirecto ? <h3 id='msgredirect'> Tienes que loguear para poder ver esta pagina </h3> : ""}
+        <h3 id='msgpantalla'> {msg} </h3>
         <h1> Login </h1>
 
         <form onSubmit={makeLogin}>
