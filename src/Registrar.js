@@ -14,7 +14,6 @@ function Registrar() {
     const [inputPassw, setInputPassw] = useState(false);
     const [isReady, setIsReady] = useState(false);
     const [name, setName] = useState("");
-    const [apellido, setApellido] = useState("");
     const [email, setEmail] = useState("");
     const [passw, setPassw] = useState("");
     const [message, setMessage] = useState("");
@@ -22,9 +21,6 @@ function Registrar() {
     const handleName = (e) =>{
     setName(e.target.value);
   }
-    const handleApellido = (e) =>{
-      setApellido(e.target.value);
-    }
     const handleEmail = (e) =>{
       setEmail(e.target.value);
     }
@@ -35,12 +31,12 @@ function Registrar() {
   const handleSubmit = (event) => {
           event.preventDefault();
 
-          fetch("http://localhost/daniphp/PHP-backend/registrar.php", {
+          fetch("http://localhost/daniphp/login-jwt/registro.php", {
             method: 'POST',
             headers: new Headers({
                    'Content-Type': 'application/x-www-form-urlencoded',
           }),
-          body: "nombre="+name+"&apellido="+apellido+"&email="+email+"&passw="+passw
+          body: "username="+name+"&useremail="+email+"&userpw="+passw
           })
           .then((response) => response.text())
           .then((responseText) => {
@@ -50,11 +46,6 @@ function Registrar() {
             setInputName(true);
           }else{
             setInputName(false);
-          }
-          if(responseText === "Ingrese su apellido"){
-            setInputLast(true);
-          }else{
-            setInputLast(false);
           }
           if(responseText === "Ingrese su email"){
             setInputEmail(true);
@@ -84,8 +75,7 @@ function Registrar() {
 
         <form onSubmit={handleSubmit}>
           <h1 className={isReady? "success" : "failed"}>{message}</h1>
-          <input type="text" className={!inputName? "" : "inputfail"} value= { isReady? "": name} onChange={handleName} placeholder="Ingrese su nombre" />
-          <input type="text" className={!inputLast? "" : "inputfail"} value= { isReady? "": apellido} onChange={handleApellido} placeholder="Ingrese su apellido" />
+          <input type="text" className={!inputName? "" : "inputfail"} value= { isReady? "": name} onChange={handleName} placeholder="Ingrese su nombre" />>
           <input type="text" className={!inputEmail? "" : "inputfail"} value= { isReady? "": email} onChange={handleEmail} placeholder="Ingrese su email" />
           <input type="text" className={!inputPassw? "" : "inputfail"}  value= { isReady? "": passw} onChange={handlePassw} placeholder="Ingrese su contraseña" />
           <input type="submit" />
