@@ -1,4 +1,22 @@
 #msgpantalla{
+  position: absolute;
   color: tomato;
   font-size: 14px;
+}
+.login{
+  margin-top: 100px;
+  margin-left: 400px;
+}
+#msgredirect{
+  font-family: 'Gotham Medium', sans-serif;
+  font-size: 30px;
+  margin-top: -50px;
+  margin-left: -150px;
+  position: absolute;
+  color: gold;
+}
+.login p{
+  font-size: 14px;
+  font-family: 'Gotham Medium', sans-serif;
+  color: gold;
 }

@@ -1,17 +1,16 @@
 import React, {useContext} from 'react';
 import AuthContext from './context/AuthContext';
-import './css/Protected.css';
 
-function Protected() {
+function ProtectedTwo() {
   const context = useContext(AuthContext);
   return (
-    <div className="protected">
+    <div className="protectedtwo">
         <h3> Protected </h3>
         {context? <h1> yes </h1> : <h1> no </h1>}
-        <img src='DANIBROEDERS2.png' className='logoimg' />
+        <h1> ruta protegida n° 2 </h1>
     </div>
   )
 }
 
 
-export default Protected;
+export default ProtectedTwo;

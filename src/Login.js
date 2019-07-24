@@ -66,14 +66,15 @@ function Login(props) {
         {redirecto ? <h3 id='msgredirect'> Tienes que loguear para poder ver esta pagina </h3> : ""}
         <h3 id='msgpantalla'> {msg} </h3>
         <h1> Login </h1>
-
+        <p> email: test@test.com </p>
+        <p> password: test </p>
         <form onSubmit={makeLogin}>
           <input type='text' placeholder='email' value={email} onChange={handleEmail} />
           <input type='text' placeholder='contraseña' value={passw} onChange={handlePassw} />
           <input type='submit' />
         </form>
 
-        <button onClick={logOut} id='logOutbutton'> Desloguear </button>
+        
 
       </div>
 

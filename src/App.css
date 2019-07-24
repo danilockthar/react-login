@@ -1,38 +1,25 @@
-.App {
-  text-align: center;
+@font-face {
+font-family: 'Gotham Medium';
+Src: url('./fuentes/GothamMedium.ttf');
+font-display: optional;
 }
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+.approot{
+  display: grid;
+  grid-template-columns: 200px 1fr;
 }
-.sisi{
-  color: green;
+.secDiv{
+  background: black;
+  height: 90vh;
+  padding: 30px;
 }
-.nono{
-  color: red;
-}
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.desloguear{
+  top: 0;
+  position: absolute;
+  margin-top: 400px;
+  border: none;
+  background: black;
+  padding: 10px;
+  font-family: 'Gotham Medium', sans-serif;
+  color: gold;
+  margin-left: 20px;
 }

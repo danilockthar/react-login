@@ -1,4 +1,4 @@
-import { createBrowserHistory } from 'history';
+import { createBrowserHistory, Location } from 'history';
 
 // using CommonJS modules
 let history = createBrowserHistory();

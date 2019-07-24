@@ -7,6 +7,7 @@ import Home from './Home';
 import AuthContext from './context/AuthContext';
 import Redirigido from './context/Redirigido';
 import Protected from './Protected';
+import ProtectedTwo from './ProtectedTwo';
 import { Router,
    Switch,
    Route,
@@ -50,9 +51,10 @@ function App(props) {
   return (
     <Router history={history}>
 
-    <div className="App">
+    <div className="approot">
       <Nav changeRedir={changeRedir} />
-      <Switch>
+      <section className='secDiv'>
+      <Switch >
         <AuthContext.Provider value={isAuth}>
         <Route path='/' exact component={Home} />
         <Redirigido.Provider value={redirecto}>
@@ -60,11 +62,12 @@ function App(props) {
         </Redirigido.Provider>
         <Route path='/registrar' exact component={Registrar}/>
         <PrivateRoute path='/protected' component={Protected} />
+
       </AuthContext.Provider>
         </Switch>
-
+      </section>
     </div>
-    <button onClick={changeAuth}> Change </button>
+    <button className='desloguear' onClick={changeAuth}> Desloguear </button>
     </Router>
   );
 }

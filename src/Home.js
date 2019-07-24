@@ -7,11 +7,11 @@ import './css/Home.css';
 
 function Home() {
 
-  
+
   return (
       <div className="home">
-        <h1> Home page </h1>
-
+        <h1> Pequeño sistema de login y registro en React JS con backend realizado en PHP. </h1>
+        
       </div>
   )
 }
