@@ -31,7 +31,7 @@ function Registrar() {
   const handleSubmit = (event) => {
           event.preventDefault();
 
-          fetch("http://localhost/daniphp/login-jwt/registro.php", {
+          fetch("https://interdictory-sinks.000webhostapp.com/includes/registro.php", {
             method: 'POST',
             headers: new Headers({
                    'Content-Type': 'application/x-www-form-urlencoded',
@@ -46,6 +46,8 @@ function Registrar() {
             setName("");
             setEmail("");
             setPassw("");
+            setIsReady(true);
+            console.log(json.user);
           }else{
             console.log("false");
           }
@@ -59,12 +61,15 @@ function Registrar() {
 
   return (
       <div className="registrar">
-        <h1> Registro </h1>
+        <h1 className='sectionRegistro'> Registro </h1>
 
         <form onSubmit={handleSubmit}>
           <h1 className={isReady? "success" : "failed"}>{message}</h1>
-          <input type="text" className={!inputName? "" : "inputfail"} value= { isReady? "": name} onChange={handleName} placeholder="Ingrese su nombre" />>
+          <label> Su nombre </label>
+          <input type="text" className={!inputName? "" : "inputfail"} value= { isReady? "": name} onChange={handleName} placeholder="Ingrese su nombre" />
+          <label> Ingrese su Email </label>
           <input type="text" className={!inputEmail? "" : "inputfail"} value= { isReady? "": email} onChange={handleEmail} placeholder="Ingrese su email" />
+          <label> Ingrese su contraseña </label>
           <input type="password" className={!inputPassw? "" : "inputfail"}  value= { isReady? "": passw} onChange={handlePassw} placeholder="Ingrese su contraseña" />
           <input type="submit" />
         </form>

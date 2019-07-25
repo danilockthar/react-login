@@ -1,15 +1,27 @@
 .success{
   color: green;
+  position: absolute;
+  margin-top: -40px;
 }
 .failed{
+  position: absolute;
   color: tomato;
+  margin-top: -40px;
 }
 .inputfail{
   border: 2px solid tomato;
 }
 .registrar{
   margin-left: 400px;
-  margin-top: 100px;
+  margin-top: 150px;
+}
+.sectionRegistro{
+  position: absolute;
+  margin-top: -100px;
+  color: gold;
+  font-family: 'Gotham Rounded', sans-serif;
+  font-size: 50px;
+  font-weight: 700;
 }
 form input[type=text]{
   font-family: 'Gotham Rounded', sans-serif;
@@ -47,4 +59,9 @@ form input[type=submit]{
 }
 form h1{
   text-align: left;
+}
+form label{
+  color: gold;
+  font-family: 'Gotham Rounded', sans-serif;
+
 }

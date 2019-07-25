@@ -22,7 +22,7 @@ function Login(props) {
 
     e.preventDefault();
 
-    fetch("http://localhost/daniphp/login-jwt/ingreso.php", {
+    fetch("https://interdictory-sinks.000webhostapp.com/includes/ingreso.php", {
     method: "POST",
     headers: new Headers({
       "Content-Type": "application/x-www-form-urlencoded"
