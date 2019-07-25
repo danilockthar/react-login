@@ -70,11 +70,11 @@ function Login(props) {
         <p> password: test </p>
         <form onSubmit={makeLogin}>
           <input type='text' placeholder='email' value={email} onChange={handleEmail} />
-          <input type='text' placeholder='contraseña' value={passw} onChange={handlePassw} />
-          <input type='submit' />
+          <input type='password' placeholder='contraseña' value={passw} onChange={handlePassw} />
+          <input type='submit' className='buttonlog' />
         </form>
 
-        
+
 
       </div>
 

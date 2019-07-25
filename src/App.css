@@ -3,6 +3,11 @@ font-family: 'Gotham Medium';
 Src: url('./fuentes/GothamMedium.ttf');
 font-display: optional;
 }
+@font-face {
+font-family: 'Gotham Rounded';
+Src: url('./fuentes/GothamRounded-Bold.otf');
+font-display: optional;
+}
 .approot{
   display: grid;
   grid-template-columns: 200px 1fr;
@@ -11,15 +16,24 @@ font-display: optional;
   background: black;
   height: 90vh;
   padding: 30px;
+  overflow-y: scroll;
 }
 .desloguear{
   top: 0;
   position: absolute;
-  margin-top: 400px;
+  margin-top: 550px;
   border: none;
   background: black;
   padding: 10px;
   font-family: 'Gotham Medium', sans-serif;
   color: gold;
-  margin-left: 20px;
+  margin-left: 50px;
+}
+.footer{
+  position: absolute;
+  top: 0;
+  color: gold;
+  position: fixed;
+  margin-top: 600px;
+  margin-left: 900px;
 }

@@ -3,16 +3,29 @@
 .nav{
   display: grid;
   grid-template-rows: 1fr 1fr 1fr 1fr;
+
   align-items: center;
   height: 500px;
   width: 200px;
   border-right: 3px solid #6c859e;
 }
 .Linktags{
+  padding: 10px;
+  margin-top: 60px;
+  width: 100%;
   font-family: 'Gotham Rounded', sans-serif;
+  font-weight: 700;
   font-size: 24px;
   margin-left: 15px;
   text-decoration: none;
   justify-content: center;
   color: black;
+}
+.Linktags:hover{
+  background: black;
+  color: gold;
+}
+.selected{
+  background: black;
+  color: gold;
 }

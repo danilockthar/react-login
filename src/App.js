@@ -22,11 +22,13 @@ function App(props) {
   const [isAuth, setIsAuth] = useState(false);
 
   const changeAuth = () =>{
-    setIsAuth(!isAuth);
+    setIsAuth(true);
     history.push('/protected', { some: 'state' });
 
   }
-
+  const noAuth = () => {
+    setIsAuth(false);
+  }
   const changeRedir = () =>{
     setRedirecto(false);
   }
@@ -65,9 +67,10 @@ function App(props) {
 
       </AuthContext.Provider>
         </Switch>
+        <a href='https://danibroeders.web.app/app' target='new_blank' className='footer'> creado por Broeders </a>
       </section>
     </div>
-    <button className='desloguear' onClick={changeAuth}> Desloguear </button>
+    <button className='desloguear' onClick={noAuth}> Desloguear </button>
     </Router>
   );
 }

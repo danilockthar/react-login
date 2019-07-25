@@ -38,28 +38,16 @@ function Registrar() {
           }),
           body: "username="+name+"&useremail="+email+"&userpw="+passw
           })
-          .then((response) => response.text())
-          .then((responseText) => {
-          setMessage(responseText);
+          .then((response) => response.json())
+          .then((json) => {
+          setMessage(json.msg);
 
-          if(responseText === "Ingrese su nombre"){
-            setInputName(true);
+          if(json.exito === true){
+            setName("");
+            setEmail("");
+            setPassw("");
           }else{
-            setInputName(false);
-          }
-          if(responseText === "Ingrese su email"){
-            setInputEmail(true);
-          }else{
-            setInputEmail(false);
-          }
-          if(responseText === "Ingrese su contraseña"){
-            setInputPassw(true);
-          }else{
-            setInputPassw(false);
-          }
-          if(responseText === "Registro realizado con exito"){
-            setIsReady(true);
-            setAutenticado(true);
+            console.log("false");
           }
           })
           .catch((error) => {
@@ -77,7 +65,7 @@ function Registrar() {
           <h1 className={isReady? "success" : "failed"}>{message}</h1>
           <input type="text" className={!inputName? "" : "inputfail"} value= { isReady? "": name} onChange={handleName} placeholder="Ingrese su nombre" />>
           <input type="text" className={!inputEmail? "" : "inputfail"} value= { isReady? "": email} onChange={handleEmail} placeholder="Ingrese su email" />
-          <input type="text" className={!inputPassw? "" : "inputfail"}  value= { isReady? "": passw} onChange={handlePassw} placeholder="Ingrese su contraseña" />
+          <input type="password" className={!inputPassw? "" : "inputfail"}  value= { isReady? "": passw} onChange={handlePassw} placeholder="Ingrese su contraseña" />
           <input type="submit" />
         </form>
 

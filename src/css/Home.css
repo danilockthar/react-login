@@ -2,11 +2,32 @@
   margin: 0;
 }
 .home h1{
-  font-family: 'Gotham Medium', sans-serif;
+  font-family: 'Gotham Rounded', sans-serif;
+  font-weight: 700;
   font-size: 80px;
   color: gold;
 
 }
 .home{
   padding: 20px;
+}
+.avance{
+  margin-top: 40px;
+  font-family: 'Gotham Rounded', sans-serif;
+  font-size:24px;
+  color: gold;
+}
+.ingresoimg{
+  margin-left: 200px;
+  margin-top: 40px;
+}
+.avance2{
+  margin-top: 40px;
+  font-family: 'Gotham Rounded', sans-serif;
+  font-size:24px;
+  color: gold;
+}
+.registroimg{
+  margin-left: 200px;
+  margin-top: 40px;
 }

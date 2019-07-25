@@ -8,7 +8,7 @@ function Nav(props) {
 
 
       <NavLink exact to='/' className="Linktags" onClick={props.changeRedir} activeClassName="selected">
-        HOME
+        Home
       </NavLink>
       <NavLink  to='/registrar' className="Linktags" onClick={props.changeRedir} activeClassName="selected">
         Registrar
