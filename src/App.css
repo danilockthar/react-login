@@ -19,6 +19,8 @@ font-display: optional;
   overflow-y: scroll;
 }
 .desloguear{
+  outline: none;
+  cursor: pointer;
   top: 0;
   position: absolute;
   margin-top: 550px;
